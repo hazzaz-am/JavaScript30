@@ -2,6 +2,7 @@ html {
   font-size: 10px;
   background: url('./images/background.jpg') bottom center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body,html {
@@ -48,4 +49,19 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+
+/* Responsive Devices */
+
+@media only screen and (min-width: 600px) {
+  .keys {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .keys {
+    flex-wrap: wrap;
+  }
 }
