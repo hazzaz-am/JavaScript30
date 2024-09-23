@@ -5,8 +5,13 @@
 		<title>Array Cardio 💪</title>
 		<link rel="icon" href="https://fav.farm/🔥" />
 	</head>
-	<body>
-		<p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+	<body
+		style="
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+				'Lucida Sans', Arial, sans-serif;
+		"
+	>
+		<h1><em>Psst: have a look at the JavaScript Console</em> 💁</h1>
 		<script>
 			// Get your shorts on - this is an array workout!
 			// ## Array Cardio Day 1
@@ -111,15 +116,25 @@
 			console.log("Sorted Inventors By Years Lived : ");
 			console.table(oldest);
 			console.log("-----------------------------------------");
+
 			// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 			// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+			// const category = document.querySelector(".mw-category");
+			// const links = Array.from(category.querySelectorAll("a"));
+			// const de = links
+			// 	.map((link) => link.textContent)
+			// 	.filter((linkText) => linkText.includes("de"));
+			console.log("-----------------------------------------");
 
 			// 7. sort Exercise
 			// Sort the people alphabetically by last name
-			const sortPeopleAlphabetically = people.sort(
-				(a, b) => a.split(", ")[0] < b.split(", ")[0]
-			);
-			console.log(sortPeopleAlphabetically);
+			const sortPeople = people.sort((lastOne, nextOne) => {
+				const [last1, first1] = lastOne.split(", ");
+				const [last2, first2] = nextOne.split(", ");
+				return last1 > last2 ? 1 : -1;
+			});
+			console.log("Sort the people alphabetically by:");
+			console.table(sortPeople);
 			console.log("-----------------------------------------");
 
 			// 8. Reduce Exercise
@@ -139,21 +154,18 @@
 				"van",
 				"car",
 				"truck",
+				"pogostick",
 			];
 
-			function sumUpInstances(arr) {
-				let obj = {};
-				for (let i = 0; i < arr.length; i++) {
-					if (obj[arr[i]]) {
-						obj[arr[i]] = obj[arr[i]] + 1;
-					} else {
-						obj[arr[i]] = 1;
-					}
+			const sumUp = data.reduce((obj, item) => {
+				if (!obj[item]) {
+					obj[item] = 0;
 				}
+				obj[item]++;
 				return obj;
-			}
-
-			console.log(sumUpInstances(data));
+			}, {});
+			console.log("Sum up the instances :");
+			console.log(sumUp);
 		</script>
 	</body>
 </html>
